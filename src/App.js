@@ -18,7 +18,8 @@ class App extends Component {
      onChange={event => {this.setState({newEntry: event.target.value})}}
      onKeyPress={event => {
        if (event.key === 'Enter') {
-       var array=this.state.todos;
+         if(event.target.value!==""){
+            var array=this.state.todos;
        var object={};
        object['item']=this.state.newEntry;
        object['state']=false;
@@ -26,6 +27,8 @@ class App extends Component {
        this.setState({todos:array});
        this.setState({newEntry: ""});
        event.target.value="";
+         }
+      
        }
      }}
     />
